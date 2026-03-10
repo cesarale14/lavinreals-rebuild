@@ -40,14 +40,36 @@ export default function HomePage() {
   const t = translations[lang];
   const featured = parcelas.slice(0, 4);
 
-  useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.setAttribute("webkit-playsinline", "true");
-      videoRef.current.play().catch(() => {});
-    }
-  }, []);
   const madridCount = parcelas.filter((p) => p.city === "Madrid").length;
   const otrasCount = parcelas.filter((p) => p.city === "Otras Areas").length;
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (video) {
+      video.setAttribute("playsinline", "");
+      video.setAttribute("webkit-playsinline", "");
+      video.setAttribute("x5-playsinline", "");
+      video.setAttribute("x5-video-player-type", "h5");
+      video.setAttribute("x5-video-player-fullscreen", "false");
+      video.muted = true;
+      video.play().catch(() => {});
+    }
+  }, []);
+
+  useEffect(() => {
+    const playVideo = () => {
+      if (videoRef.current) {
+        videoRef.current.muted = true;
+        videoRef.current.play().catch(() => {});
+      }
+    };
+    window.addEventListener("touchstart", playVideo, { once: true });
+    window.addEventListener("scroll", playVideo, { once: true });
+    return () => {
+      window.removeEventListener("touchstart", playVideo);
+      window.removeEventListener("scroll", playVideo);
+    };
+  }, []);
 
   return (
     <>
