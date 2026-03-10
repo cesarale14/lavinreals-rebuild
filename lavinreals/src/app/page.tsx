@@ -199,7 +199,6 @@ export default function HomePage() {
       </section>
 
       {/* ── MARQUEE ────────────────────── */}
-      <Marquee text={t.marquee1} />
       <Marquee text={t.marquee2} />
 
       {/* ── FEATURED PARCELAS (white) ──────────────── */}
