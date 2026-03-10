@@ -36,6 +36,7 @@ export default function Footer() {
             { href: "/contacto", label: t.nav.contacto },
             { href: "/acerca", label: t.nav.acerca },
             { href: "/noticias", label: t.nav.noticias },
+            { href: "/legal", label: t.footer.legal },
           ].map((link) => (
             <Link
               key={link.href}
