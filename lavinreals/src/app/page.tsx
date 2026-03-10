@@ -54,6 +54,13 @@ export default function HomePage() {
       video.muted = true;
       video.play().catch(() => {});
     }
+    const timer = setTimeout(() => {
+      if (videoRef.current) {
+        videoRef.current.muted = true;
+        videoRef.current.play().catch(() => {});
+      }
+    }, 500);
+    return () => clearTimeout(timer);
   }, []);
 
   useEffect(() => {
@@ -84,7 +91,12 @@ export default function HomePage() {
           loop
           playsInline
           preload="auto"
-          onLoadedData={(e) => (e.target as HTMLVideoElement).play().catch(() => {})}
+          onLoadedData={() => {
+            if (videoRef.current) {
+              videoRef.current.muted = true;
+              videoRef.current.play().catch(() => {});
+            }
+          }}
           className="absolute inset-0 w-full h-full object-cover pointer-events-none"
         />
         {/* Dark overlay for readability */}
