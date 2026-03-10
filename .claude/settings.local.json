@@ -12,7 +12,9 @@
       "Bash(curl:*)",
       "Bash(convert:*)",
       "Bash(ls:*)",
-      "Bash(python:*)"
+      "Bash(python:*)",
+      "Bash(node:*)",
+      "Bash(rm:*)"
     ]
   }
 }
