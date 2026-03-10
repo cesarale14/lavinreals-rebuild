@@ -10,16 +10,35 @@ const jost = Jost({
 });
 
 export const metadata: Metadata = {
-  title: "Lavinreals - Cartera de suelo urbanizable en Madrid y Areas Prime",
+  metadataBase: new URL("https://lavinreals-rebuild.vercel.app"),
+  title: "Lavinreals — Cartera de suelo urbanizable en Madrid",
   description:
-    "Consultora independiente lider en gestion y comercializacion discrecional de suelo urbanizable en España. Cartera privada para inversores, promotores y particulares.",
+    "Consultora independiente líder en gestión y comercialización discrecional de suelo urbanizable en España.",
   icons: {
     icon: "/logo.png",
     apple: "/logo.png",
   },
   openGraph: {
+    title: "Lavinreals — Cartera de suelo urbanizable en Madrid",
+    description:
+      "Consultora independiente líder en gestión y comercialización discrecional de suelo urbanizable en España.",
     locale: "es_ES",
     siteName: "Lavinreals",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Lavin Reals",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Lavinreals — Cartera de suelo urbanizable en Madrid",
+    description:
+      "Consultora independiente líder en gestión y comercialización discrecional de suelo urbanizable en España.",
+    images: ["/og-image.png"],
   },
 };
 
