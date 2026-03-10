@@ -30,6 +30,9 @@ export const metadata: Metadata = {
     card: "summary",
     images: ["/logo.png"],
   },
+  verification: {
+    google: "DCTExfsB3-NkE4KTpE8s00qjg709Tb6vMpjLL2U0K-A",
+  },
 };
 
 export default function RootLayout({
