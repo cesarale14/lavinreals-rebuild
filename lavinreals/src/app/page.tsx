@@ -1,5 +1,4 @@
 "use client";
-import { useRef, useEffect } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import {
@@ -35,7 +34,6 @@ const stagger = {
 };
 
 export default function HomePage() {
-  const videoRef = useRef<HTMLVideoElement>(null);
   const { lang } = useLanguage();
   const t = translations[lang];
   const featured = parcelas.slice(0, 4);
@@ -43,61 +41,21 @@ export default function HomePage() {
   const madridCount = parcelas.filter((p) => p.city === "Madrid").length;
   const otrasCount = parcelas.filter((p) => p.city === "Otras Areas").length;
 
-  useEffect(() => {
-    const video = videoRef.current;
-    if (video) {
-      video.setAttribute("playsinline", "");
-      video.setAttribute("webkit-playsinline", "");
-      video.setAttribute("x5-playsinline", "");
-      video.setAttribute("x5-video-player-type", "h5");
-      video.setAttribute("x5-video-player-fullscreen", "false");
-      video.muted = true;
-      video.play().catch(() => {});
-    }
-    const timer = setTimeout(() => {
-      if (videoRef.current) {
-        videoRef.current.muted = true;
-        videoRef.current.play().catch(() => {});
-      }
-    }, 500);
-    return () => clearTimeout(timer);
-  }, []);
-
-  useEffect(() => {
-    const playVideo = () => {
-      if (videoRef.current) {
-        videoRef.current.muted = true;
-        videoRef.current.play().catch(() => {});
-      }
-    };
-    window.addEventListener("touchstart", playVideo, { once: true });
-    window.addEventListener("scroll", playVideo, { once: true });
-    return () => {
-      window.removeEventListener("touchstart", playVideo);
-      window.removeEventListener("scroll", playVideo);
-    };
-  }, []);
-
   return (
     <>
       {/* ── HERO (video background) ──────────────────── */}
       <section className="relative min-h-screen flex items-center justify-center bg-black overflow-hidden">
-        {/* Background video */}
+        {/* Background video — bare attributes only, no JS play() calls */}
+        {/* eslint-disable-next-line jsx-a11y/media-has-caption */}
         <video
-          ref={videoRef}
-          src="/hero-video.mp4"
           autoPlay
           muted
+          defaultMuted
           loop
           playsInline
-          preload="auto"
-          onLoadedData={() => {
-            if (videoRef.current) {
-              videoRef.current.muted = true;
-              videoRef.current.play().catch(() => {});
-            }
-          }}
-          className="absolute inset-0 w-full h-full object-cover pointer-events-none"
+          preload="metadata"
+          src="/hero-video.mp4"
+          style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" as const, pointerEvents: "none" }}
         />
         {/* Dark overlay for readability */}
         <div className="absolute inset-0 bg-black/55" />
