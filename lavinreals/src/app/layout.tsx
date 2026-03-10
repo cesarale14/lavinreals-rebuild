@@ -13,6 +13,10 @@ export const metadata: Metadata = {
   title: "Lavinreals - Cartera de suelo urbanizable en Madrid y Areas Prime",
   description:
     "Consultora independiente lider en gestion y comercializacion discrecional de suelo urbanizable en España. Cartera privada para inversores, promotores y particulares.",
+  icons: {
+    icon: "/logo.png",
+    apple: "/logo.png",
+  },
   openGraph: {
     locale: "es_ES",
     siteName: "Lavinreals",

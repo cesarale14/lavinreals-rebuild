@@ -10,7 +10,8 @@
       "WebFetch(domain:videos.pexels.com)",
       "WebFetch(domain:mixkit.co)",
       "Bash(curl:*)",
-      "Bash(convert:*)"
+      "Bash(convert:*)",
+      "Bash(ls:*)"
     ]
   }
 }
