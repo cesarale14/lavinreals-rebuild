@@ -1,4 +1,5 @@
 "use client";
+import { useRef, useEffect } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import {
@@ -34,9 +35,17 @@ const stagger = {
 };
 
 export default function HomePage() {
+  const videoRef = useRef<HTMLVideoElement>(null);
   const { lang } = useLanguage();
   const t = translations[lang];
   const featured = parcelas.slice(0, 4);
+
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.setAttribute("webkit-playsinline", "true");
+      videoRef.current.play().catch(() => {});
+    }
+  }, []);
   const madridCount = parcelas.filter((p) => p.city === "Madrid").length;
   const otrasCount = parcelas.filter((p) => p.city === "Otras Areas").length;
 
@@ -46,12 +55,15 @@ export default function HomePage() {
       <section className="relative min-h-screen flex items-center justify-center bg-black overflow-hidden">
         {/* Background video */}
         <video
+          ref={videoRef}
           src="/hero-video.mp4"
           autoPlay
           muted
           loop
           playsInline
-          className="absolute inset-0 w-full h-full object-cover"
+          preload="auto"
+          onLoadedData={(e) => (e.target as HTMLVideoElement).play().catch(() => {})}
+          className="absolute inset-0 w-full h-full object-cover pointer-events-none"
         />
         {/* Dark overlay for readability */}
         <div className="absolute inset-0 bg-black/55" />
