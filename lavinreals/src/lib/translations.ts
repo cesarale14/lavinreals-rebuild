@@ -81,6 +81,7 @@ export const translations: Record<Language, any> = {
       submit: "Enviar Mensaje",
       title: "Solicitar Consulta Privada",
       success: "Mensaje enviado",
+      error: "Error al enviar el mensaje. Inténtelo de nuevo.",
     },
     footer: {
       desc: "Consultora independiente líder en gestión y comercialización discrecional de suelo urbanizable en España.",
@@ -238,6 +239,7 @@ export const translations: Record<Language, any> = {
       submit: "Send Message",
       title: "Request Private Consultation",
       success: "Message sent",
+      error: "Failed to send message. Please try again.",
     },
     footer: {
       desc: "Independent leading consultant in discreet management and marketing of developable land in Spain.",
@@ -395,6 +397,7 @@ export const translations: Record<Language, any> = {
       submit: "Envoyer le Message",
       title: "Demander une Consultation Privée",
       success: "Message envoyé",
+      error: "Erreur lors de l'envoi du message. Veuillez réessayer.",
     },
     footer: {
       desc: "Cabinet indépendant leader en gestion et commercialisation discrète de terrains urbanisables en Espagne.",

@@ -14,7 +14,8 @@
       "Bash(ls:*)",
       "Bash(python:*)",
       "Bash(node:*)",
-      "Bash(rm:*)"
+      "Bash(rm:*)",
+      "Bash(npx tsc:*)"
     ]
   }
 }
