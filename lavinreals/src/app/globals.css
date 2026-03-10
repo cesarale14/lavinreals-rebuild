@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700;800&display=swap');
+@import "tailwindcss";
+
+@theme inline {
+  --color-gold: #d6ab54;
+  --color-gold-light: #e0bc6e;
+  --color-gold-dark: #b8923e;
+  --color-black: #000000;
+  --color-white: #FFFFFF;
+  --color-beige: #ccbaad;
+  --color-beige-light: #ddd0c6;
+  --color-beige-dark: #b8a495;
+  /* Light theme surfaces */
+  --color-surface: #FFFFFF;
+  --color-surface-raised: #FFFFFF;
+  --color-surface-elevated: #F7F4F1;
+  --color-surface-border: #E5DDD5;
+  /* Dark sections (hero, marquee, observatorio, footer) */
+  --color-dark: #000000;
+  --color-dark-raised: #111111;
+  --color-dark-border: #2a2a2a;
+  /* Light-beige tinted bg for subtle contrast sections */
+  --color-warm: #F9F6F3;
+  /* Text on light */
+  --color-heading: #1a1a1a;
+  --color-body: #4a4a4a;
+  --color-muted: #8a8a8a;
+  --font-serif: "Times New Roman", Times, serif;
+  --font-sans: "Jost", sans-serif;
+}
+
+body {
+  background: var(--color-surface);
+  color: var(--color-heading);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+::selection {
+  background: rgba(214, 171, 84, 0.3);
+  color: #1a1a1a;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f5f2ef;
+}
+::-webkit-scrollbar-thumb {
+  background: #ccbaad;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #d6ab54;
+}
