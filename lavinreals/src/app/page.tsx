@@ -1,4 +1,5 @@
 "use client";
+import { useRef, useEffect } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import {
@@ -34,12 +35,38 @@ const stagger = {
 };
 
 export default function HomePage() {
+  const videoRef = useRef<HTMLVideoElement>(null);
   const { lang } = useLanguage();
   const t = translations[lang];
   const featured = parcelas.slice(0, 4);
 
   const madridCount = parcelas.filter((p) => p.city === "Madrid").length;
   const otrasCount = parcelas.filter((p) => p.city === "Otras Areas").length;
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+    video.muted = true;
+    const timer = setTimeout(() => {
+      video.play().catch(() => {});
+    }, 100);
+    return () => clearTimeout(timer);
+  }, []);
+
+  useEffect(() => {
+    const playVideo = () => {
+      if (videoRef.current) {
+        videoRef.current.muted = true;
+        videoRef.current.play().catch(() => {});
+      }
+    };
+    window.addEventListener("touchstart", playVideo, { once: true });
+    window.addEventListener("scroll", playVideo, { once: true });
+    return () => {
+      window.removeEventListener("touchstart", playVideo);
+      window.removeEventListener("scroll", playVideo);
+    };
+  }, []);
 
   return (
     <>
@@ -48,6 +75,7 @@ export default function HomePage() {
         {/* Background video — bare attributes only, no JS play() calls */}
         {/* eslint-disable-next-line jsx-a11y/media-has-caption */}
         <video
+          ref={videoRef}
           autoPlay
           muted
           defaultMuted
