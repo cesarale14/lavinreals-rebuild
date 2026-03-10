@@ -1,11 +1,17 @@
 import { ImageResponse } from "next/og";
+import { readFileSync } from "node:fs";
+import { join } from "node:path";
 
-export const runtime = "edge";
+export const runtime = "nodejs";
 export const alt = "Lavin Reals";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
 export default function TwitterImage() {
+  const logoPath = join(process.cwd(), "public", "logo.jpeg");
+  const logoData = readFileSync(logoPath);
+  const logoBase64 = `data:image/png;base64,${logoData.toString("base64")}`;
+
   return new ImageResponse(
     (
       <div
@@ -20,41 +26,18 @@ export default function TwitterImage() {
           padding: "60px",
         }}
       >
-        {/* LR Monogram with square border */}
-        <div
+        {/* Logo image — inverted to white on black */}
+        <img
+          src={logoBase64}
+          width={200}
+          height={200}
           style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            width: 120,
-            height: 120,
-            border: "2px solid #ffffff",
-            marginBottom: 32,
+            height: 200,
+            width: "auto",
+            filter: "invert(1)",
+            marginBottom: 28,
           }}
-        >
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              width: 104,
-              height: 104,
-              border: "1px solid #ffffff",
-            }}
-          >
-            <span
-              style={{
-                fontSize: 80,
-                color: "#ffffff",
-                fontFamily: '"Times New Roman", Times, serif',
-                letterSpacing: "-0.05em",
-                lineHeight: 1,
-              }}
-            >
-              LR
-            </span>
-          </div>
-        </div>
+        />
 
         {/* Brand name */}
         <span

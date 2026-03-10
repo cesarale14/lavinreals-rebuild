@@ -15,8 +15,8 @@ export const metadata: Metadata = {
   description:
     "Consultora independiente líder en gestión y comercialización discrecional de suelo urbanizable en España.",
   icons: {
-    icon: "/logo.png",
-    apple: "/logo.png",
+    icon: "/logo.jpeg",
+    apple: "/logo.jpeg",
   },
   openGraph: {
     title: "Lavinreals — Cartera de suelo urbanizable en Madrid",
