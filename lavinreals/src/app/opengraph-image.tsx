@@ -10,7 +10,7 @@ export const contentType = "image/png";
 export default function OGImage() {
   const logoPath = join(process.cwd(), "public", "logo.jpeg");
   const logoData = readFileSync(logoPath);
-  const logoBase64 = `data:image/png;base64,${logoData.toString("base64")}`;
+  const logoBase64 = `data:image/jpeg;base64,${logoData.toString("base64")}`;
 
   return new ImageResponse(
     (
@@ -34,7 +34,6 @@ export default function OGImage() {
           style={{
             height: 200,
             width: "auto",
-            filter: "invert(1)",
             marginBottom: 28,
           }}
         />
