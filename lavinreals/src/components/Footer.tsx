@@ -69,7 +69,7 @@ export default function Footer() {
             {t.footer.copy2}
           </p>
         </div>
-        <span className="text-beige-dark/60 text-xs font-sans">{t.footer.legal}</span>
+        <Link href="/legal" className="text-beige-dark/60 text-xs font-sans hover:text-gold transition-colors duration-300">{t.footer.legal}</Link>
       </div>
     </footer>
   );

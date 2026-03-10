@@ -78,7 +78,6 @@ export default function HomePage() {
           ref={videoRef}
           autoPlay
           muted
-          defaultMuted
           loop
           playsInline
           preload="metadata"
