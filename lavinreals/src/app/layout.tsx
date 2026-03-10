@@ -24,9 +24,11 @@ export const metadata: Metadata = {
       "Consultora independiente líder en gestión y comercialización discrecional de suelo urbanizable en España.",
     locale: "es_ES",
     siteName: "Lavinreals",
+    images: [{ url: "/logo.jpeg", width: 800, height: 800 }],
   },
   twitter: {
-    card: "summary_large_image",
+    card: "summary",
+    images: ["/logo.jpeg"],
   },
 };
 
