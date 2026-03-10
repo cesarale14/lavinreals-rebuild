@@ -11,7 +11,8 @@
       "WebFetch(domain:mixkit.co)",
       "Bash(curl:*)",
       "Bash(convert:*)",
-      "Bash(ls:*)"
+      "Bash(ls:*)",
+      "Bash(python:*)"
     ]
   }
 }

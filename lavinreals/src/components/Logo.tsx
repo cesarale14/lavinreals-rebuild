@@ -6,7 +6,7 @@ interface LogoProps {
 export default function Logo({ size = 48, inverted = false }: LogoProps) {
   return (
     <img
-      src="/logo.jpeg"
+      src="/logo.png"
       alt="Lavin Reals"
       width={size}
       height={size}
