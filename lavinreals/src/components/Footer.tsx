@@ -24,7 +24,7 @@ export default function Footer() {
             {t.nav.phone}
           </a>
           <p className="text-beige-dark/70 text-sm mt-2 font-sans leading-relaxed">
-            C/Gobelas, 35, El Plantio, 28023 Madrid - HQ La Florida
+            C/Gobelas, 35, El Plantío, 28023 Madrid - HQ La Florida
           </p>
         </div>
 
